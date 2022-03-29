@@ -1,5 +1,5 @@
-//import mongodb and create schema
 const mongoose = require('mongoose')
+
 const articleSchema = new mongoose.Schema({
     title: {
         required: true,
