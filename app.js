@@ -3,7 +3,13 @@ const express = require('express')
 const req = require('express/lib/request')
 const res = require('express/lib/response')
 const app = express()
-
+//connect to mongodb using mongoose
+const mongoose = require('mongoose')
+mongoose.connect('mongodb://localhost:27107/ex',{
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useCreateIndex: true
+})
 // set file
 app.set('views', './src/views')
 app.set('view engine', 'ejs')
