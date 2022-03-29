@@ -7,6 +7,7 @@ app.set('views', './src/views')
 app.set('view engine', 'ejs')
 
 require('./src/routes/home.routes')(app)
+require('./src/routes/blog.routes')(app)
 
 app.use(express.static('public'))
 app.use('/css', express.static(__dirname + 'public/css'))
