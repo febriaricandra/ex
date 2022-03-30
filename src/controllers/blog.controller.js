@@ -18,3 +18,6 @@ exports.store = async (req,res)=>{
         res.redirect('/blog/create')
     }
 }
+exports.show = (req,res) =>{
+    res.render('./blog/show')
+}
