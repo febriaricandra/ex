@@ -18,10 +18,10 @@ exports.store = async (req,res)=>{
         res.redirect('/blog/create')
     }
 }
-exports.show = (req,res) =>{
+exports.show = async (req,res) =>{
     try{
     const id = req.params.id
-    let article = Article.findById(id)
+    let article = await Article.findById(id)
     res.render('blog/show',{
         article: article
     })
