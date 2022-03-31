@@ -19,5 +19,13 @@ exports.store = async (req,res)=>{
     }
 }
 exports.show = (req,res) =>{
-    res.render('./blog/show')
+    try{
+    const id = req.params.id
+    let article = Article.findById(id)
+    res.render('blog/show',{
+        article: article
+    })
+    }catch(e){
+        res.redirect('/')
+    }
 }
