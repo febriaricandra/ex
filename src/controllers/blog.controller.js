@@ -29,3 +29,29 @@ exports.show = async (req,res) =>{
         res.redirect('/')
     }
 }
+exports.edit = async (req,res) =>{
+    try{
+    const id = req.params.id
+    let article = await Article.findById(id)
+    res.render('blog/edit',{
+        article: article
+    })
+    }catch(e){
+        res.redirect('/')
+    }
+}
+exports.update = async (req,res) =>{
+    try{
+    const id = req.params.id
+    let article = await Article.findById(id)
+    article.title= req.body.title
+    article.subtitle= req.body.subtitle
+    article.content= req.body.content
+    await article.save()
+    res.redirect('/')
+    }catch(e){
+        res.render('blog/edit',{
+            article: article
+        })
+    }
+}
