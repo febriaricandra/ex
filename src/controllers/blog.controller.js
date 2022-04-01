@@ -55,3 +55,8 @@ exports.update = async (req,res) =>{
         })
     }
 }
+exports.delete = async (req,res) =>{
+    const id = req.params.id
+    await Article.findByIdAndDelete(id)
+    res.redirect('/')
+}
